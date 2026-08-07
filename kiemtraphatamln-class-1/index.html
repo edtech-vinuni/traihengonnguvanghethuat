@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Assessment phát âm L/N</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap&subset=vietnamese"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>Assessment phát âm L/N</h1>
+
+    <section id="menu" class="panel">
+      <div id="lessonName" class="lesson-name">Đang tải bài học…</div>
+
+      <label class="field">
+        <span>Mã học sinh</span>
+        <input id="studentId" type="text" value="S001" />
+      </label>
+
+      <label class="field">
+        <span>Giọng đọc mẫu</span>
+        <select id="voiceSelect">
+          <option value="">Đang tải giọng đọc…</option>
+        </select>
+      </label>
+
+      <button id="btnTestVoice" class="btn light btn-wide">🔊 Nghe thử giọng</button>
+
+      <div class="note">
+        App sẽ ghi âm từng câu và xuất ra file ZIP gồm report.json + audio.
+      </div>
+
+      <button id="btnStart" class="btn btn-main">Bắt đầu</button>
+    </section>
+
+    <section id="practice" class="panel hidden">
+      <div class="topbar">
+        <span id="progressText">0/0</span>
+        <span id="timerText">0s</span>
+      </div>
+
+      <div id="attemptText" class="attempt">Lượt 1</div>
+
+      <div id="prompt" class="prompt">—</div>
+
+      <div class="actions actions-col">
+        <button id="btnListen" class="btn light btn-wide" disabled>🔊 Nghe mẫu</button>
+        <button id="btnSpeak" class="btn btn-wide btn-primary">🎤 Nói</button>
+      </div>
+
+      <div id="recordStatus" class="record-status hidden">
+        <span class="dot"></span>
+        <span>Đang ghi âm…</span>
+      </div>
+
+      <div id="feedback" class="feedback hidden"></div>
+
+      <div class="actions bottom-actions">
+        <button id="btnEnd" class="btn light danger">⛔ Kết thúc</button>
+        <button id="btnRetry" class="btn light hidden">🔁 Ghi lại</button>
+        <button id="btnNext" class="btn hidden">➡️ Câu tiếp</button>
+      </div>
+    </section>
+
+    <section id="done" class="panel hidden">
+      <h2>Hoàn thành</h2>
+      <div id="summary" class="summary"></div>
+
+      <div class="actions actions-col">
+        <button id="btnExportZip" class="btn btn-wide">📦 Export ZIP</button>
+        <button id="btnExportJSON" class="btn light btn-wide">⬇️ Export JSON only</button>
+        <button id="btnRestart" class="btn light btn-wide">Chơi lại</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-credit">
+    © 2026 Nguyen Tuan Hiep · L/N Pronunciation Assessment ·
+    <a href="mailto:tuanhiepnguyen2002@gmail.com">tuanhiepnguyen2002@gmail.com</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

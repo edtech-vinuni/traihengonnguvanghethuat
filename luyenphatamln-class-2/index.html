@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luyện phát âm L/N</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap&subset=vietnamese"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>Luyện phát âm L/N</h1>
+
+    <section id="menu" class="panel">
+      <div id="lessonName" class="lesson-name">Đang tải bài học…</div>
+
+      <label class="field">
+        <span>Mã học sinh</span>
+        <input id="studentId" type="text" value="S001" />
+      </label>
+
+      <label class="field">
+        <span>Giọng đọc mẫu</span>
+        <select id="voiceSelect">
+          <option value="">Đang tải giọng đọc…</option>
+        </select>
+      </label>
+
+      <button id="btnTestVoice" class="btn light btn-wide">🔊 Nghe thử giọng</button>
+
+      <label class="field">
+        <span>Model chấm phát âm</span>
+        <select id="modelSelect">
+          <option value="ivanthepevt/PhoWhisper-tiny-for-L-N" selected>
+            Tiny L/N — ivanthepevt/PhoWhisper-tiny-for-L-N
+          </option>
+          <option value="huuquyet/PhoWhisper-base">
+            Base — huuquyet/PhoWhisper-base
+          </option>
+        </select>
+      </label>
+
+      <button id="btnLoadModel" class="btn light btn-wide">⬇️ Load model</button>
+      <div id="modelStatus" class="model-status">Model chưa được load</div>
+
+      <button id="btnStart" class="btn btn-main" disabled>Bắt đầu</button>
+    </section>
+
+    <section id="practice" class="panel hidden">
+      <div class="topbar">
+        <span id="progressText">0/0</span>
+        <span id="timerText">0s</span>
+      </div>
+
+      <div id="attemptText" class="attempt">Lượt 1/3</div>
+
+      <div id="prompt" class="prompt">—</div>
+
+      <div class="actions actions-col">
+        <button id="btnListen" class="btn light btn-wide" disabled>🔊 Nghe mẫu</button>
+        <button id="btnSpeak" class="btn btn-wide btn-primary">🎤 Nói</button>
+      </div>
+
+      <div id="status" class="status hidden">
+        <span class="spinner"></span>
+        <span>Đang chấm…</span>
+      </div>
+
+      <div id="feedback" class="feedback hidden"></div>
+
+      <div id="imageBox" class="image-box hidden"></div>
+
+      <div class="actions bottom-actions">
+        <button id="btnEnd" class="btn light danger">⛔ Kết thúc</button>
+        <button id="btnRetry" class="btn light hidden">🔁 Thử lại</button>
+        <button id="btnNext" class="btn hidden">➡️ Câu tiếp</button>
+      </div>
+    </section>
+
+    <section id="done" class="panel hidden">
+      <h2>Hoàn thành</h2>
+      <div id="summary" class="summary"></div>
+
+      <div class="actions actions-col">
+        <button id="btnExportCSV" class="btn light btn-wide">⬇️ Export CSV</button>
+        <button id="btnExportJSON" class="btn light btn-wide">⬇️ Export JSON</button>
+        <button id="btnRestart" class="btn btn-wide">Chơi lại</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-credit">
+    © 2026 Nguyen Tuan Hiep · L/N Pronunciation Trainer ·
+    <a href="mailto:tuanhiepnguyen2002@gmail.com">tuanhiepnguyen2002@gmail.com</a>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
