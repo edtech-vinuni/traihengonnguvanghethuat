@@ -2,27 +2,72 @@
 
 Repository chứa các ứng dụng web phục vụ hoạt động **kiểm tra và luyện phát âm hai âm đầu L/N** trong chương trình Trại hè Ngôn ngữ và Nghệ thuật.
 
-Các ứng dụng được triển khai trực tiếp bằng **GitHub Pages** và có thể sử dụng trên trình duyệt mà không cần cài đặt thêm phần mềm.
+---
 
-## Các bài kiểm tra
+# 👩‍🏫 PHẦN 1 — DÀNH CHO TÌNH NGUYỆN VIÊN
 
-Bài kiểm tra được sử dụng để ghi nhận phần phát âm của học sinh phục vụ hoạt động assessment.
+> **Các bạn tình nguyện viên hãy truy cập link tương ứng với buổi học/ kiểm tra nhé.**
 
-* Link đến bài test số 1: https://edtech-vinuni.github.io/traihengonnguvanghethuat/kiemtraphatamln-class-1/
-* Link đến bài test số 2: https://edtech-vinuni.github.io/traihengonnguvanghethuat/kiemtraphatamln-class-2/
+## 📝 Bài kiểm tra
 
-## Các bài luyện phát âm
+Sử dụng đúng bài kiểm tra theo hướng dẫn của ban tổ chức.
 
-Các bài luyện cho phép học sinh luyện tập phát âm L/N theo nội dung của từng buổi học.
+### Bài test số 1
 
-* Link đến bài luyện số 1: https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-1/
-* Link đến bài luyện số 2: https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-2/
-* Link đến bài luyện số 3: https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-3/
-* Link đến bài luyện số 4: https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-4/
-* Link đến bài luyện số 5: https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-5/
-* Link đến bài luyện số 6: https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-6/
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/kiemtraphatamln-class-1/" target="_blank"><strong>MỞ BÀI TEST SỐ 1</strong></a>
+
+### Bài test số 2
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/kiemtraphatamln-class-2/" target="_blank"><strong>MỞ BÀI TEST SỐ 2</strong></a>
+
+---
+
+## 🎤 Các bài luyện phát âm
+
+Sử dụng đúng bài luyện tương ứng với buổi học.
+
+### Bài luyện số 1
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-1/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 1</strong></a>
+
+### Bài luyện số 2
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-2/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 2</strong></a>
+
+### Bài luyện số 3
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-3/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 3</strong></a>
+
+### Bài luyện số 4
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-4/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 4</strong></a>
+
+### Bài luyện số 5
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-5/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 5</strong></a>
+
+### Bài luyện số 6
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-6/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 6</strong></a>
+
+### Bài luyện số 7
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-7/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 7</strong></a>
+
+### Bài luyện số 8
+
+👉 <a href="https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-8/" target="_blank"><strong>MỞ BÀI LUYỆN SỐ 8</strong></a>
+
+---
+
+# ⚙️ PHẦN 2 — DÀNH CHO ADMIN
+
+> **Phần này dành cho người quản lý nội dung và cấu hình hệ thống.**
+> Tình nguyện viên không cần thực hiện các thao tác trong phần này.
 
 ## Cấu trúc repository
+
+Các bài kiểm tra và bài luyện được đặt trong các thư mục riêng:
 
 ```text
 traihengonnguvanghethuat/
@@ -37,10 +82,13 @@ traihengonnguvanghethuat/
 ├── luyenphatamln-class-4/
 ├── luyenphatamln-class-5/
 ├── luyenphatamln-class-6/
+├── luyenphatamln-class-7/
+├── luyenphatamln-class-8/
+│
 └── luyenphatamln.v2-template/
 ```
 
-Mỗi thư mục bài học là một web app độc lập, thông thường gồm:
+Mỗi thư mục là một web app độc lập, thông thường gồm:
 
 ```text
 index.html
@@ -51,23 +99,27 @@ l.png / L.png
 n.png / N.png
 ```
 
-Trong đó:
+### Chức năng của các file
 
 * `index.html`: giao diện chính của ứng dụng.
 * `app.js`: logic hoạt động của ứng dụng.
 * `styles.css`: định dạng giao diện.
-* `config.json`: cấu hình nội dung của từng bài, bao gồm câu luyện tập, thời gian và các thông tin liên quan.
+* `config.json`: nội dung và cấu hình riêng của từng bài.
 * `l.png`, `n.png`: hình ảnh hỗ trợ phân biệt hai âm L/N.
 
-## Chỉnh sửa nội dung bài học
+---
 
-Phần lớn nội dung của mỗi bài có thể được thay đổi trong file:
+## ✏️ Chỉnh sửa nội dung bài học
+
+Trong trường hợp chỉ cần thay đổi **câu hỏi, câu luyện tập hoặc thời gian**, admin chủ yếu chỉ cần chỉnh file:
 
 ```text
 config.json
 ```
 
-Ví dụ một item:
+Không nên sửa `app.js`, `index.html` hoặc `styles.css` nếu chỉ muốn thay đổi nội dung bài.
+
+Ví dụ một item trong `config.json`:
 
 ```json
 {
@@ -87,31 +139,54 @@ Ví dụ một item:
 }
 ```
 
-Mỗi bài có thể cấu hình độc lập mà không cần thay đổi các bài còn lại.
+Trong đó:
 
-## Template
+* `id`: mã định danh của câu.
+* `text`: nội dung đầy đủ hiển thị cho học sinh.
+* `time_limit_seconds`: thời gian dành cho câu.
+* `syllables`: cấu trúc các âm tiết trong câu.
+* `target`: âm cần luyện, ví dụ `"l"` hoặc `"n"`. Nếu không phải âm cần kiểm tra thì để `null`.
 
-Repository có hai thư mục template để tạo bài mới:
+Mỗi bài có `config.json` riêng, vì vậy có thể chỉnh nội dung một bài mà không ảnh hưởng đến các bài khác.
 
-* `kiemtraphatamln.v2-template`: template cho bài kiểm tra.
-* `luyenphatamln.v2-template`: template cho bài luyện.
+---
 
-Để tạo một bài mới, có thể copy thư mục template hoặc một bài hiện có, đổi tên thư mục và chỉnh sửa `config.json`.
+## ➕ Tạo bài mới
 
-Ví dụ:
+Repository có hai template:
+
+* `kiemtraphatamln.v2-template`: template cho **bài kiểm tra**.
+* `luyenphatamln.v2-template`: template cho **bài luyện**.
+
+Ví dụ muốn tạo bài luyện số 9:
+
+1. Copy thư mục `luyenphatamln.v2-template`.
+2. Đổi tên thành:
 
 ```text
-luyenphatamln-class-7/
+luyenphatamln-class-9
 ```
 
-Sau khi push lên branch `main`, nếu GitHub Pages của repository đang được cấu hình để deploy từ repository, bài mới có thể được truy cập theo dạng:
+3. Chỉnh nội dung trong:
 
 ```text
-https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-7/
+luyenphatamln-class-9/config.json
 ```
 
-## Repository
+4. Commit và push lên branch `main`.
+
+Sau khi GitHub Pages cập nhật, bài mới sẽ có địa chỉ:
+
+```text
+https://edtech-vinuni.github.io/traihengonnguvanghethuat/luyenphatamln-class-9/
+```
+
+5. Thêm link của bài mới vào **PHẦN 1 — DÀNH CHO TÌNH NGUYỆN VIÊN** của README.
+
+---
+
+## 🌐 Repository
 
 GitHub:
 
-https://github.com/edtech-vinuni/traihengonnguvanghethuat
+<a href="https://github.com/edtech-vinuni/traihengonnguvanghethuat" target="_blank">https://github.com/edtech-vinuni/traihengonnguvanghethuat</a>
