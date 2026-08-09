@@ -1,5 +1,5 @@
 {
-  "lesson_name": "Bài 1: Phân biệt L và N",
+  "lesson_name": "Bài 1 - Practice 1",
   "praises": [
     "Tuyệt vời, con đọc rất tốt!",
     "Giỏi quá, con phát âm rõ rồi!",
@@ -8,197 +8,103 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "lua_nep",
-      "text": "lúa nếp",
-      "time_limit_seconds": 45,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {
-          "text": "lúa",
-          "target": "l",
-          "bad": "Tiếng thứ nhất cần đọc là âm L.",
-          "image": "l.png"
-        },
-        {
-          "text": "nếp",
-          "target": "n",
-          "bad": "Tiếng thứ hai cần đọc là âm N.",
-          "image": "n.png"
-        }
-      ]
-    },
-    {
-      "id": "thanh_nien",
-      "text": "thanh niên",
+      "id": "nang_am",
+      "text": "nắng ấm",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {
-          "text": "thanh",
-          "target": null
-        },
-        {
-          "text": "niên",
-          "target": "n",
-          "bad": "Tiếng thứ hai bắt đầu bằng âm N. Con chú ý để hơi thoát qua mũi.",
-          "image": "n.png"
-        }
+        {"text": "_ắng", "target": "n"},
+        {"text": "ấm", "target": null}
       ]
     },
     {
-      "id": "thanh_long",
-      "text": "thanh long",
+      "id": "not_nhac",
+      "text": "nốt nhạc",
       "time_limit_seconds": 40,
-      "listen_enable_attempt": 1,
-      "syllables": [
-        {
-          "text": "thanh",
-          "target": null
-        },
-        {
-          "text": "long",
-          "target": "l",
-          "bad": "Tiếng thứ hai bắt đầu bằng âm L. Con đặt lưỡi nhẹ phía sau răng trên.",
-          "image": "l.png"
-        }
-      ]
-    },
-    {
-      "id": "noi_lau",
-      "text": "nồi lẩu",
-      "time_limit_seconds": 45,
-      "listen_enable_attempt": 3,
-      "syllables": [
-        {
-          "text": "nồi",
-          "target": "n",
-          "bad": "Tiếng thứ nhất cần đọc là âm N.",
-          "image": "n.png"
-        },
-        {
-          "text": "lẩu",
-          "target": "l",
-          "bad": "Tiếng thứ hai cần đọc là âm L.",
-          "image": "l.png"
-        }
-      ]
-    },
-    {
-      "id": "nang_nong",
-      "text": "nắng nóng",
-      "time_limit_seconds": 45,
       "listen_enable_attempt": 2,
       "syllables": [
-        {
-          "text": "nắng",
-          "target": "n",
-          "bad": "Tiếng thứ nhất là âm N. Con chú ý hơi thoát qua mũi.",
-          "image": "n.png"
-        },
-        {
-          "text": "nóng",
-          "target": "n",
-          "bad": "Tiếng thứ hai cũng là âm N. Con đọc lại chậm và rõ hơn nhé.",
-          "image": "n.png"
-        }
+        {"text": "_ốt", "target": "n"},
+        {"text": "nhạc", "target": null}
       ]
     },
     {
-      "id": "lap_xuong",
-      "text": "lạp xưởng",
-      "time_limit_seconds": 35,
-      "listen_enable_attempt": 1,
-      "syllables": [
-        {
-          "text": "lạp",
-          "target": "l",
-          "bad": "Tiếng thứ nhất bắt đầu bằng âm L.",
-          "image": "l.png"
-        },
-        {
-          "text": "xưởng",
-          "target": null
-        }
-      ]
-    },
-    {
-      "id": "len_nui",
-      "text": "lên núi",
-      "time_limit_seconds": 45,
+      "id": "ne_nep",
+      "text": "nề nếp",
+      "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {
-          "text": "lên",
-          "target": "l",
-          "bad": "Tiếng thứ nhất cần đọc là âm L.",
-          "image": "l.png"
-        },
-        {
-          "text": "núi",
-          "target": "n",
-          "bad": "Tiếng thứ hai cần đọc là âm N.",
-          "image": "n.png"
-        }
+        {"text": "_ề", "target": "n"},
+        {"text": "_ếp", "target": "n"}
       ]
     },
     {
-      "id": "loi_noi",
-      "text": "lời nói",
-      "time_limit_seconds": 45,
+      "id": "nan_not",
+      "text": "nắn nót",
+      "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {
-          "text": "lời",
-          "target": "l",
-          "bad": "Tiếng thứ nhất là âm L, con đừng đọc thành N nhé.",
-          "image": "l.png"
-        },
-        {
-          "text": "nói",
-          "target": "n",
-          "bad": "Tiếng thứ hai là âm N, con chú ý hơi mũi khi đọc.",
-          "image": "n.png"
-        }
+        {"text": "_ắn", "target": "n"},
+        {"text": "_ót", "target": "n"}
       ]
     },
     {
-      "id": "lam_nen",
-      "text": "làm nên",
-      "time_limit_seconds": 45,
+      "id": "le_hoi",
+      "text": "lễ hội",
+      "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {
-          "text": "làm",
-          "target": "l",
-          "bad": "Tiếng thứ nhất bắt đầu bằng âm L.",
-          "image": "l.png"
-        },
-        {
-          "text": "nên",
-          "target": "n",
-          "bad": "Tiếng thứ hai bắt đầu bằng âm N.",
-          "image": "n.png"
-        }
+        {"text": "_ễ", "target": "l"},
+        {"text": "hội", "target": null}
       ]
     },
     {
-      "id": "nau_nuong",
-      "text": "nấu nướng",
-      "time_limit_seconds": 45,
+      "id": "loc_xoay",
+      "text": "lốc xoáy",
+      "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {
-          "text": "nấu",
-          "target": "n",
-          "bad": "Tiếng thứ nhất là âm N.",
-          "image": "n.png"
-        },
-        {
-          "text": "nướng",
-          "target": "n",
-          "bad": "Tiếng thứ hai cũng là âm N.",
-          "image": "n.png"
-        }
+        {"text": "_ốc", "target": "l"},
+        {"text": "xoáy", "target": null}
+      ]
+    },
+    {
+      "id": "lung_linh",
+      "text": "lung linh",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ung", "target": "l"},
+        {"text": "_inh", "target": "l"}
+      ]
+    },
+    {
+      "id": "long_lay",
+      "text": "lộng lẫy",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ộng", "target": "l"},
+        {"text": "_ẫy", "target": "l"}
+      ]
+    },
+    {
+      "id": "nang_luc",
+      "text": "năng lực",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ăng", "target": "n"},
+        {"text": "_ực", "target": "l"}
+      ]
+    },
+    {
+      "id": "luyen_noi",
+      "text": "luyện nói",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_uyện", "target": "l"},
+        {"text": "_ói", "target": "n"}
       ]
     }
   ]
