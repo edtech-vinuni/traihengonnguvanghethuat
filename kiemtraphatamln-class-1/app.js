@@ -1,7 +1,7 @@
 (() => {
   const CONFIG = {
     CONFIG_URL: "./config.json",
-    DEFAULT_STUDENT_ID: "S001",
+    DEFAULT_STUDENT_ID: "1",
     DEFAULT_TIME_LIMIT_SECONDS: 45,
     TIMER_TICK_MS: 250,
 
