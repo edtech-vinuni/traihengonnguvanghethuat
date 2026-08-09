@@ -18,7 +18,7 @@
       "time_limit_seconds": 15,
       "listen_enable_attempt": 0,
       "syllables": [
-        {"text": "_lương", "target": "l",
+        {"text": "_ương", "target": "l",
         {"text": "thực", "target": null}
       ]
     },
