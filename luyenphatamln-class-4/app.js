@@ -17,8 +17,8 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     TARGET_SAMPLE_RATE: 16000,
 
     TTS_TEST_TEXT: "Xin chào, mình là người Việt Nam",
-    TTS_RATE: 1.1,
-    TTS_PITCH: 0.9,
+    TTS_RATE: 1.0,
+    TTS_PITCH: 1.0,
     TTS_VOLUME: 1.0,
 
     SFX_VOLUME: 0.5,
@@ -204,7 +204,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   function updateListenButton() {
     const item = currentItem();
 
-    if (!item || !current || isJudging) {
+    if (!item || !current || isJudging || current.final_status) {
       btnListen.disabled = true;
       return;
     }
@@ -216,6 +216,22 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     btnListen.title = btnListen.disabled
       ? `Nghe mẫu sẽ mở từ lượt ${enableFrom}`
       : "Nghe mẫu";
+  }
+
+  function lockCurrentItem() {
+    btnListen.disabled = true;
+    btnSpeak.disabled = true;
+
+    if (recording) {
+      stopRec().catch(() => {});
+    }
+  }
+
+  function unlockCurrentItem() {
+    if (!current?.final_status && !isJudging) {
+      btnSpeak.disabled = false;
+      updateListenButton();
+    }
   }
 
   function setJudging(on) {
@@ -232,7 +248,12 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
       lastTimerTickMs = null;
     } else {
       lastTimerTickMs = Date.now();
-      updateListenButton();
+
+      if (current?.final_status) {
+        lockCurrentItem();
+      } else {
+        unlockCurrentItem();
+      }
     }
 
     console.log("[UI] judging =", on, "countdownLeftMs =", countdownLeftMs);
@@ -541,7 +562,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     if (!current?.final_status) {
       timerPaused = false;
       lastTimerTickMs = Date.now();
-      updateListenButton();
+      unlockCurrentItem();
     }
   }
 
@@ -550,11 +571,8 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
     stopCountdown();
 
-    if (recording) {
-      stopRec().catch(() => {});
-    }
-
     current.final_status = "FAIL_BY_TIMEOUT";
+    lockCurrentItem();
     finishCurrentItem();
 
     setFeedback("Hết thời gian. Con bấm câu tiếp để chuyển sang câu mới nhé.", "warn");
@@ -602,6 +620,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
   function renderPrompt(item, wrongIndexes = []) {
     const syllables = item.syllables || [];
+
     promptEl.innerHTML = syllables.map((syl, i) => {
       const cls = wrongIndexes.includes(i) ? "syllable bad" : "syllable";
       return `<span class="${cls}">${escapeHtml(syl.text)}</span>`;
@@ -631,8 +650,8 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
     btnSpeak.textContent = "🎤 Nói";
 
-    updateListenButton();
     startCountdown(item);
+    unlockCurrentItem();
   }
 
   function evaluateSyllables(item, heardRaw) {
@@ -702,6 +721,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
       playSfx(true);
 
       current.final_status = "CORRECT";
+      lockCurrentItem();
       finishCurrentItem();
 
       setVisible(btnRetry, false);
@@ -722,6 +742,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
     if (current.attempt_count >= CONFIG.MAX_ATTEMPTS) {
       current.final_status = "FAIL_BY_ATTEMPT";
+      lockCurrentItem();
       finishCurrentItem();
 
       setVisible(btnRetry, false);
@@ -776,7 +797,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   // =====================================================
   async function judge(audioF32) {
     const item = currentItem();
-    if (!item || !current) return;
+    if (!item || !current || current.final_status) return;
 
     pauseCountdown();
     setJudging(true);
@@ -933,7 +954,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
   btnListen.onclick = () => {
     const item = currentItem();
-    if (!item || !current || isJudging || btnListen.disabled) return;
+    if (!item || !current || isJudging || current.final_status || btnListen.disabled) return;
 
     current.hint_count += 1;
     speakText(item.text);
@@ -941,7 +962,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
   btnSpeak.onclick = async () => {
     try {
-      if (isJudging) return;
+      if (isJudging || current?.final_status || btnSpeak.disabled) return;
 
       if (!recording) {
         clearFeedback();
@@ -963,7 +984,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   };
 
   btnRetry.onclick = () => {
-    if (isJudging) return;
+    if (isJudging || current?.final_status) return;
 
     clearFeedback();
     setVisible(btnRetry, false);
