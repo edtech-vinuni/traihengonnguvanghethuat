@@ -18,6 +18,16 @@
       ]
     },
     {
+      "id": "le_hoi",
+      "text": "lễ hội",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ễ", "target": "l"},
+        {"text": "hội", "target": null}
+      ]
+    },
+    {
       "id": "not_nhac",
       "text": "nốt nhạc",
       "time_limit_seconds": 40,
@@ -38,6 +48,26 @@
       ]
     },
     {
+      "id": "nang_luc",
+      "text": "năng lực",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ăng", "target": "n"},
+        {"text": "_ực", "target": "l"}
+      ]
+    },
+    {
+      "id": "lap_lo",
+      "text": "lấp ló",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ấp", "target": "l"},
+        {"text": "_ó", "target": "l"}
+      ]
+    },
+    {
       "id": "nan_not",
       "text": "nắn nót",
       "time_limit_seconds": 40,
@@ -45,16 +75,6 @@
       "syllables": [
         {"text": "_ắn", "target": "n"},
         {"text": "_ót", "target": "n"}
-      ]
-    },
-    {
-      "id": "le_hoi",
-      "text": "lễ hội",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ễ", "target": "l"},
-        {"text": "hội", "target": null}
       ]
     },
     {
@@ -75,26 +95,6 @@
       "syllables": [
         {"text": "_ung", "target": "l"},
         {"text": "_inh", "target": "l"}
-      ]
-    },
-    {
-      "id": "long_lay",
-      "text": "lộng lẫy",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ộng", "target": "l"},
-        {"text": "_ẫy", "target": "l"}
-      ]
-    },
-    {
-      "id": "nang_luc",
-      "text": "năng lực",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ăng", "target": "n"},
-        {"text": "_ực", "target": "l"}
       ]
     },
     {
