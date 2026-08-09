@@ -19,7 +19,7 @@
   };
 
   const DEFAULT_LESSON = {
-    lesson_name: "Assessment phát âm L/N",
+    lesson_name: "Trò chơi: tập phát âm L/N",
     default_time_limit_seconds: CONFIG.DEFAULT_TIME_LIMIT_SECONDS,
     items: [
       {
