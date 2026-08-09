@@ -13,13 +13,13 @@
       ]
     },
     {
-      "id": "tham_lam",
-      "text": "tham lam",
+      "id": "luong_thuc",
+      "text": "lương thực",
       "time_limit_seconds": 15,
       "listen_enable_attempt": 0,
       "syllables": [
-        {"text": "tham", "target": null},
-        {"text": "_am", "target": "l"}
+        {"text": "_lương", "target": "l",
+        {"text": "thực", "target": null}
       ]
     },
     {
@@ -163,13 +163,13 @@
       ]
     },
     {
-      "id": "non_la",
-      "text": "nón lá",
+      "id": "nang_luong",
+      "text": "năng lượng",
       "time_limit_seconds": 15,
       "listen_enable_attempt": 0,
       "syllables": [
-        {"text": "_ón", "target": "n"},
-        {"text": "_á", "target": "l"}
+        {"text": "_ăng", "target": "n"},
+        {"text": "_ượng", "target": "l"}
       ]
     },
     {
