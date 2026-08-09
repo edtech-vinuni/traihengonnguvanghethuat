@@ -63,13 +63,13 @@
       ]
     },
     {
-      "id": "no_tung",
-      "text": "nổ tung",
+      "id": "nay_mam",
+      "text": "nảy mầm",
       "time_limit_seconds": 15,
       "listen_enable_attempt": 0,
       "syllables": [
-        {"text": "_ổ", "target": "n"},
-        {"text": "tung", "target": null}
+        {"text": "_ảy", "target": "n"},
+        {"text": "mầm", "target": null}
       ]
     },
     {
