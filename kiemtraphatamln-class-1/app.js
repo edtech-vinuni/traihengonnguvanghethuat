@@ -56,6 +56,8 @@
   const btnRestart = $("btnRestart");
 
   const progressText = $("progressText");
+  const countdownEl = $("countdown");
+  const timerRing = $("timerRing");
   const timerText = $("timerText");
   const attemptText = $("attemptText");
   const promptEl = $("prompt");
@@ -86,6 +88,7 @@
   let selectedVoice = null;
 
   let recording = false;
+  let recordingStarting = false;
   let stream = null;
   let recorder = null;
   let chunks = [];
@@ -97,6 +100,42 @@
   const itemElapsedMs = () => itemStartMs ? Date.now() - itemStartMs : null;
   const secSince = (ms) => Number(((Date.now() - ms) / 1000).toFixed(3));
   const fmtSec = (ms) => `${Math.max(0, Math.ceil(ms / 1000))}s`;
+
+  const TIMER_RING_RADIUS = 27;
+  const TIMER_RING_CIRCUMFERENCE = 2 * Math.PI * TIMER_RING_RADIUS;
+
+  function updateCountdownUI(totalMs) {
+    const safeTotal = Math.max(1, Number(totalMs) || 1);
+    const safeLeft = Math.max(0, Math.min(countdownMs, safeTotal));
+    const ratio = safeLeft / safeTotal;
+
+    timerText.textContent = fmtSec(safeLeft);
+
+    if (timerRing) {
+      timerRing.style.strokeDasharray = `${TIMER_RING_CIRCUMFERENCE}`;
+      timerRing.style.strokeDashoffset = `${TIMER_RING_CIRCUMFERENCE * (1 - ratio)}`;
+    }
+
+    if (!countdownEl) return;
+
+    countdownEl.classList.remove(
+      "countdown-green",
+      "countdown-amber",
+      "countdown-red",
+      "countdown-expired"
+    );
+
+    // Theo tỉ lệ để vẫn hợp lý nếu mỗi câu có giới hạn thời gian khác nhau.
+    if (safeLeft <= 0) {
+      countdownEl.classList.add("countdown-red", "countdown-expired");
+    } else if (ratio <= 0.20) {
+      countdownEl.classList.add("countdown-red");
+    } else if (ratio <= 0.45) {
+      countdownEl.classList.add("countdown-amber");
+    } else {
+      countdownEl.classList.add("countdown-green");
+    }
+  }
 
   function safeName(s) {
     return String(s || "item")
@@ -275,10 +314,12 @@
   function startCountdown(item) {
     stopCountdown();
 
-    countdownMs = itemLimitMs(item);
-    timerText.textContent = fmtSec(countdownMs);
+    const totalMs = itemLimitMs(item);
+    countdownMs = totalMs;
+    updateCountdownUI(totalMs);
 
     timerPaused = false;
+    countdownEl?.classList.remove("countdown-paused");
     lastTickMs = Date.now();
 
     timer = setInterval(() => {
@@ -291,9 +332,14 @@
       countdownMs -= t - lastTickMs;
       lastTickMs = t;
 
-      timerText.textContent = fmtSec(countdownMs);
+      if (countdownMs <= 0) {
+        countdownMs = 0;
+        updateCountdownUI(totalMs);
+        handleTimeout();
+        return;
+      }
 
-      if (countdownMs <= 0) handleTimeout();
+      updateCountdownUI(totalMs);
     }, CONFIG.TIMER_TICK_MS);
   }
 
@@ -305,12 +351,14 @@
   function pauseCountdown() {
     timerPaused = true;
     lastTickMs = null;
+    countdownEl?.classList.add("countdown-paused");
   }
 
   function resumeCountdown() {
-    if (!current?.final_status) {
+    if (!current?.final_status && countdownMs > 0) {
       timerPaused = false;
       lastTickMs = Date.now();
+      countdownEl?.classList.remove("countdown-paused");
     }
   }
 
@@ -335,7 +383,8 @@
 
     progressText.textContent = `${index + 1}/${items.length}`;
     attemptText.textContent = "Lượt 1";
-    timerText.textContent = fmtSec(itemLimitMs(item));
+    countdownMs = itemLimitMs(item);
+    updateCountdownUI(itemLimitMs(item));
 
     show(recordStatus, false);
     show(btnRetry, false);
@@ -367,38 +416,86 @@
   }
 
   async function startRecording() {
-    if (!current || current.final_status) return;
+    if (
+      !current ||
+      current.final_status ||
+      recording ||
+      recordingStarting ||
+      countdownMs <= 0
+    ) return;
 
-    chunks = [];
-    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const targetCurrent = current;
+    recordingStarting = true;
+    btnSpeak.disabled = true;
 
-    let mimeType = "";
-    for (const t of CONFIG.AUDIO_TYPES) {
-      if (MediaRecorder.isTypeSupported(t)) {
-        mimeType = t;
-        break;
+    let newStream = null;
+
+    try {
+      chunks = [];
+      newStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+      // Quan trọng: trạng thái có thể đã đổi trong lúc await getUserMedia().
+      if (
+        !current ||
+        current !== targetCurrent ||
+        current.final_status ||
+        countdownMs <= 0
+      ) {
+        newStream.getTracks().forEach(t => t.stop());
+        newStream = null;
+        console.log("[RECORDING] cancelled because item already ended");
+        return;
+      }
+
+      stream = newStream;
+
+      let mimeType = "";
+      for (const t of CONFIG.AUDIO_TYPES) {
+        if (MediaRecorder.isTypeSupported(t)) {
+          mimeType = t;
+          break;
+        }
+      }
+
+      recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+      recorder.ondataavailable = e => e.data?.size && chunks.push(e.data);
+      recorder.start();
+
+      recording = true;
+      pauseCountdown();
+
+      current.recording_count = 1;
+      current.recording_started_at = nowISO();
+
+      logEvent("RECORDING_STARTED", {
+        attempt_no: 1,
+        mime_type: recorder.mimeType || mimeType || "unknown"
+      });
+
+      show(recordStatus, true);
+      btnSpeak.textContent = "⏹️ Dừng";
+      btnSpeak.disabled = false;
+      btnListen.disabled = true;
+      btnNext.disabled = true;
+    } catch (e) {
+      newStream?.getTracks().forEach(t => t.stop());
+      if (stream === newStream) stream = null;
+      recorder = null;
+      recording = false;
+      throw e;
+    } finally {
+      recordingStarting = false;
+
+      if (
+        current === targetCurrent &&
+        current &&
+        !current.final_status &&
+        !recording &&
+        countdownMs > 0
+      ) {
+        btnSpeak.disabled = false;
       }
     }
-
-    recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
-    recorder.ondataavailable = e => e.data?.size && chunks.push(e.data);
-    recorder.start();
-
-    recording = true;
-    pauseCountdown();
-
-    current.recording_count = 1;
-    current.recording_started_at = nowISO();
-
-    logEvent("RECORDING_STARTED", {
-      attempt_no: 1,
-      mime_type: recorder.mimeType || mimeType || "unknown"
-    });
-
-    show(recordStatus, true);
-    btnSpeak.textContent = "⏹️ Dừng";
-    btnListen.disabled = true;
-    btnNext.disabled = true;
   }
 
   async function stopRecording() {
@@ -416,6 +513,7 @@
     stream?.getTracks().forEach(t => t.stop());
 
     recording = false;
+    countdownEl?.classList.remove("countdown-paused");
     show(recordStatus, false);
     btnSpeak.textContent = "🎤 Nói";
 
@@ -459,6 +557,9 @@
 
   function handleTimeout() {
     if (!current || current.final_status) return;
+
+    countdownMs = 0;
+    updateCountdownUI(itemLimitMs(currentItem()));
 
     if (recording) {
       stopRecording().catch(console.error);
@@ -588,7 +689,15 @@
 
   btnListen.onclick = () => {
     const item = currentItem();
-    if (!item || !current || btnListen.disabled || recording) return;
+    if (
+      !item ||
+      !current ||
+      current.final_status ||
+      btnListen.disabled ||
+      recording ||
+      recordingStarting ||
+      countdownMs <= 0
+    ) return;
 
     current.hint_count += 1;
     logEvent("HINT_CLICKED", { hint_count: current.hint_count });
@@ -598,10 +707,31 @@
 
   btnSpeak.onclick = async () => {
     try {
-      if (!recording) await startRecording();
-      else await stopRecording();
+      if (recordingStarting) return;
+
+      if (!recording) {
+        if (!current || current.final_status || countdownMs <= 0) return;
+        await startRecording();
+      } else {
+        await stopRecording();
+      }
     } catch (e) {
       console.error("[RECORDING ERROR]", e);
+
+      recording = false;
+      recordingStarting = false;
+      stream?.getTracks().forEach(t => t.stop());
+      stream = null;
+      recorder = null;
+
+      countdownEl?.classList.remove("countdown-paused");
+      show(recordStatus, false);
+      btnSpeak.textContent = "🎤 Nói";
+
+      if (current && !current.final_status && countdownMs > 0) {
+        btnSpeak.disabled = false;
+      }
+
       alert("Có lỗi khi ghi âm. Mở Console để xem chi tiết.");
     }
   };
@@ -614,6 +744,14 @@
   btnExportJSON.onclick = exportJSON;
 
   btnRestart.onclick = () => {
+    stopCountdown();
+    speechSynthesis?.cancel?.();
+    stream?.getTracks().forEach(t => t.stop());
+    stream = null;
+    recorder = null;
+    recording = false;
+    recordingStarting = false;
+
     show(done, false);
     show(menu, true);
   };

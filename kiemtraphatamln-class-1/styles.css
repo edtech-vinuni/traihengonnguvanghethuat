@@ -170,11 +170,107 @@ select{
 
 .topbar{
   display:flex;
+  align-items:center;
   justify-content:space-between;
+  min-height:68px;
   color:var(--muted);
   font-size:13px;
   font-weight:900;
   margin-bottom:8px;
+}
+
+.progress-badge{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+}
+
+.topbar-label{
+  color:var(--muted);
+  font-weight:700;
+}
+
+#progressText{
+  color:var(--text);
+  font-size:17px;
+  font-weight:900;
+}
+
+.countdown{
+  --timer-color:var(--green);
+  position:relative;
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  display:grid;
+  place-items:center;
+  color:var(--timer-color);
+  transition:color .25s ease, transform .25s ease;
+}
+
+.countdown-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  transform:rotate(-90deg);
+}
+
+.countdown-track,
+.countdown-ring{
+  fill:none;
+  stroke-width:6;
+}
+
+.countdown-track{
+  stroke:#e2e8f0;
+}
+
+.countdown-ring{
+  stroke:currentColor;
+  stroke-linecap:round;
+  stroke-dasharray:169.646;
+  stroke-dashoffset:0;
+  transition:stroke-dashoffset .22s linear, stroke .25s ease;
+}
+
+.countdown-text{
+  position:relative;
+  z-index:1;
+  color:currentColor;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:-.4px;
+}
+
+.countdown-green{
+  --timer-color:var(--green);
+}
+
+.countdown-amber{
+  --timer-color:var(--amber);
+}
+
+.countdown-red{
+  --timer-color:var(--red);
+}
+
+.countdown-red:not(.countdown-paused){
+  animation:timerUrgent .8s ease-in-out infinite;
+}
+
+.countdown-paused{
+  opacity:.72;
+}
+
+.countdown-expired{
+  --timer-color:var(--red);
+  animation:none;
+}
+
+@keyframes timerUrgent{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
 }
 
 .attempt{

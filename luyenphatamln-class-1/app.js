@@ -1,9 +1,6 @@
 import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js";
 
 (() => {
-  // =====================================================
-  // CONFIG — all numbers and tunable values stay here
-  // =====================================================
   const CONFIG = {
     CONFIG_URL: "./config.json",
 
@@ -30,7 +27,10 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     ORT_NUM_THREADS: 1,
 
     PAINT_SETTLE_MS: 0,
-    TIMER_TICK_MS: 250
+    TIMER_TICK_MS: 250,
+
+    TIMER_WARN_RATIO: 0.5,
+    TIMER_DANGER_RATIO: 0.25
   };
 
   const DEFAULT_LESSON = {
@@ -51,9 +51,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     ]
   };
 
-  // =====================================================
-  // DOM
-  // =====================================================
   const $ = (id) => document.getElementById(id);
 
   const menu = $("menu");
@@ -82,6 +79,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   const btnRestart = $("btnRestart");
 
   const progressText = $("progressText");
+  const timerRing = $("timerRing");
   const timerText = $("timerText");
   const attemptText = $("attemptText");
   const promptEl = $("prompt");
@@ -90,9 +88,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   const imageBox = $("imageBox");
   const summary = $("summary");
 
-  // =====================================================
-  // STATE
-  // =====================================================
   let lesson = DEFAULT_LESSON;
   let items = [];
   let index = 0;
@@ -102,6 +97,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   let sessionStartedAt = null;
   let itemStartedAt = null;
 
+  let countdownTotalMs = 0;
   let countdownLeftMs = 0;
   let timerInterval = null;
   let lastTimerTickMs = null;
@@ -129,9 +125,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   sfxOk.volume = CONFIG.SFX_VOLUME;
   sfxBad.volume = CONFIG.SFX_VOLUME;
 
-  // =====================================================
-  // HELPERS
-  // =====================================================
   const setVisible = (node, yes) => node.classList.toggle("hidden", !yes);
   const nextPaint = () => new Promise(requestAnimationFrame);
 
@@ -179,6 +172,28 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     return `${Math.max(0, Math.ceil(ms / 1000))}s`;
   }
 
+  function updateCountdownUI() {
+    const safeTotal = Math.max(1, countdownTotalMs);
+    const ratio = Math.max(0, Math.min(1, countdownLeftMs / safeTotal));
+    const percent = ratio * 100;
+
+    timerText.textContent = formatSeconds(countdownLeftMs);
+    timerRing.style.setProperty("--p", `${percent}%`);
+
+    timerRing.classList.remove("warn", "danger", "paused");
+
+    if (timerPaused || isJudging) {
+      timerRing.classList.add("paused");
+      return;
+    }
+
+    if (ratio <= CONFIG.TIMER_DANGER_RATIO) {
+      timerRing.classList.add("danger");
+    } else if (ratio <= CONFIG.TIMER_WARN_RATIO) {
+      timerRing.classList.add("warn");
+    }
+  }
+
   function setFeedback(text, type = "bad") {
     feedback.className = `feedback ${type}`;
     feedback.textContent = text;
@@ -199,6 +214,10 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
   function getListenEnableAttempt(item) {
     return Number(item?.listen_enable_attempt || CONFIG.DEFAULT_LISTEN_ENABLE_ATTEMPT);
+  }
+
+  function currentItem() {
+    return items[index] || null;
   }
 
   function updateListenButton() {
@@ -256,7 +275,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
       }
     }
 
-    console.log("[UI] judging =", on, "countdownLeftMs =", countdownLeftMs);
+    updateCountdownUI();
   }
 
   function setModelStatus(text, type = "") {
@@ -265,9 +284,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     modelStatus.textContent = text;
   }
 
-  // =====================================================
-  // LESSON CONFIG
-  // =====================================================
   async function loadLesson() {
     try {
       const res = await fetch(CONFIG.CONFIG_URL, { cache: "no-store" });
@@ -280,12 +296,8 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
     items = lesson.items || [];
     lessonNameEl.textContent = lesson.lesson_name || "Bài luyện L/N";
-    console.log("[CONFIG] lesson loaded:", lesson);
   }
 
-  // =====================================================
-  // TTS VOICE SELECTION
-  // =====================================================
   function populateVoices() {
     if (!("speechSynthesis" in window)) {
       voiceSelect.innerHTML = `<option value="">Thiết bị không hỗ trợ TTS</option>`;
@@ -329,16 +341,12 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     voiceSelect.value = String(preferredIndex);
     selectedVoice = ordered[preferredIndex];
     voiceSelect._orderedVoices = ordered;
-
-    console.log("[TTS] voices:", ordered);
-    console.log("[TTS] selected:", selectedVoice);
   }
 
   function updateSelectedVoice() {
     const ordered = voiceSelect._orderedVoices || [];
     const idx = Number(voiceSelect.value);
     selectedVoice = ordered[idx] || null;
-    console.log("[TTS] selected voice:", selectedVoice);
   }
 
   function speakText(text, onEnd = null) {
@@ -360,13 +368,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     }
 
     u.onend = () => onEnd && onEnd();
-
-    console.log("[TTS]", {
-      text,
-      voice: u.voice?.name || null,
-      lang: u.lang
-    });
-
     speechSynthesis.speak(u);
   }
 
@@ -378,9 +379,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     } catch {}
   }
 
-  // =====================================================
-  // ASR MODEL
-  // =====================================================
   async function loadSelectedModel() {
     const modelId = modelSelect.value || CONFIG.DEFAULT_MODEL_ID;
 
@@ -420,7 +418,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
       setModelStatus(`Model đã sẵn sàng: ${modelId}`, "ok");
       btnStart.disabled = false;
 
-      console.log("[ASR] loaded:", modelId);
       return transcriber;
     } catch (e) {
       transcriber = null;
@@ -442,9 +439,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     return transcriber;
   }
 
-  // =====================================================
-  // RECORDING
-  // =====================================================
   async function startRec() {
     chunks = [];
     stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -513,9 +507,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     return out;
   }
 
-  // =====================================================
-  // COUNTDOWN
-  // =====================================================
   function getItemTimeLimitMs(item) {
     return Number(item?.time_limit_seconds || CONFIG.DEFAULT_TIME_LIMIT_SECONDS) * 1000;
   }
@@ -523,15 +514,17 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   function startCountdown(item) {
     stopCountdown();
 
-    countdownLeftMs = getItemTimeLimitMs(item);
-    timerText.textContent = formatSeconds(countdownLeftMs);
+    countdownTotalMs = getItemTimeLimitMs(item);
+    countdownLeftMs = countdownTotalMs;
 
     timerPaused = false;
     lastTimerTickMs = Date.now();
+    updateCountdownUI();
 
     timerInterval = setInterval(() => {
       if (timerPaused || isJudging || !current || current.final_status) {
         lastTimerTickMs = Date.now();
+        updateCountdownUI();
         return;
       }
 
@@ -540,7 +533,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
       lastTimerTickMs = now;
 
       countdownLeftMs -= delta;
-      timerText.textContent = formatSeconds(countdownLeftMs);
+      updateCountdownUI();
 
       if (countdownLeftMs <= 0) {
         handleTimeout();
@@ -556,6 +549,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   function pauseCountdown() {
     timerPaused = true;
     lastTimerTickMs = null;
+    updateCountdownUI();
   }
 
   function resumeCountdown() {
@@ -563,6 +557,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
       timerPaused = false;
       lastTimerTickMs = Date.now();
       unlockCurrentItem();
+      updateCountdownUI();
     }
   }
 
@@ -580,11 +575,9 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
     setVisible(btnRetry, false);
     setVisible(btnNext, true);
+    updateCountdownUI();
   }
 
-  // =====================================================
-  // LESSON FLOW
-  // =====================================================
   function newItemState(item) {
     return {
       student_id: studentId,
@@ -612,10 +605,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
       final_status: null
     };
-  }
-
-  function currentItem() {
-    return items[index] || null;
   }
 
   function renderPrompt(item, wrongIndexes = []) {
@@ -646,7 +635,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
     attemptText.textContent = `Lượt 1/${CONFIG.MAX_ATTEMPTS}`;
     progressText.textContent = `${index + 1}/${items.length}`;
-    timerText.textContent = formatSeconds(getItemTimeLimitMs(item));
 
     btnSpeak.textContent = "🎤 Nói";
 
@@ -700,8 +688,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     current.time_left_seconds_at_finish = Number(Math.max(0, countdownLeftMs / 1000).toFixed(3));
 
     logs.push({ ...current });
-
-    console.log("[ITEM LOG]", current);
   }
 
   function handleResult(ok, syllableResults) {
@@ -726,6 +712,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
       setVisible(btnRetry, false);
       setVisible(btnNext, true);
+      updateCountdownUI();
       return;
     }
 
@@ -747,6 +734,7 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
 
       setVisible(btnRetry, false);
       setVisible(btnNext, true);
+      updateCountdownUI();
     } else {
       setVisible(btnRetry, true);
       setVisible(btnNext, false);
@@ -788,13 +776,8 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
       <b>Tổng lượt nói:</b> ${attempts}<br>
       <b>Số lần nghe mẫu:</b> ${hints}
     `;
-
-    console.log("[SESSION LOGS]", logs);
   }
 
-  // =====================================================
-  // ASR JUDGE
-  // =====================================================
   async function judge(audioF32) {
     const item = currentItem();
     if (!item || !current || current.final_status) return;
@@ -844,9 +827,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     }
   }
 
-  // =====================================================
-  // EXPORT
-  // =====================================================
   function download(filename, text, mime) {
     const blob = new Blob([text], { type: mime });
     const url = URL.createObjectURL(blob);
@@ -906,9 +886,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
     download(`ln_practice_${studentId}.csv`, rows.join("\n"), "text/csv;charset=utf-8");
   }
 
-  // =====================================================
-  // EVENTS
-  // =====================================================
   btnLoadModel.onclick = async () => {
     try {
       await loadSelectedModel();
@@ -1010,9 +987,6 @@ import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers
   btnExportCSV.onclick = exportCSV;
   btnExportJSON.onclick = exportJSON;
 
-  // =====================================================
-  // INIT
-  // =====================================================
   populateVoices();
 
   if ("speechSynthesis" in window) {
