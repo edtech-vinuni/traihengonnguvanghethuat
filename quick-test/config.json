@@ -1,5 +1,5 @@
 {
-  "lesson_name": "Bài 1 - Practice 1",
+  "lesson_name": "Bài 2 - Practice 2",
   "praises": [
     "Tuyệt vời, con đọc rất tốt!",
     "Giỏi quá, con phát âm rõ rồi!",
@@ -8,103 +8,103 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "nang_am",
-      "text": "nắng ấm",
+      "id": "nu_hoa",
+      "text": "nụ hoa",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ụ", "target": "n"},
+        {"text": "hoa", "target": null}
+      ]
+    },
+    {
+      "id": "nep_song",
+      "text": "nếp sống",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ếp", "target": "n"},
+        {"text": "sống", "target": null}
+      ]
+    },
+    {
+      "id": "noi_nang",
+      "text": "nói năng",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ói", "target": "n"},
+        {"text": "_ăng", "target": "n"}
+      ]
+    },
+    {
+      "id": "nang_ne",
+      "text": "nặng nề",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ặng", "target": "n"},
+        {"text": "_ề", "target": "n"}
+      ]
+    },
+    {
+      "id": "con_luon",
+      "text": "con lươn",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "con", "target": null},
+        {"text": "_ươn", "target": "l"}
+      ]
+    },
+    {
+      "id": "long_nguoi",
+      "text": "lòng người",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_òng", "target": "l"},
+        {"text": "người", "target": null}
+      ]
+    },
+    {
+      "id": "lo_lang",
+      "text": "lo lắng",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_o", "target": "l"},
+        {"text": "_ắng", "target": "l"}
+      ]
+    },
+    {
+      "id": "luc_luong",
+      "text": "lực lượng",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {"text": "_ực", "target": "l"},
+        {"text": "_ượng", "target": "l"}
+      ]
+    },
+    {
+      "id": "nang_len",
+      "text": "nắng lên",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {"text": "_ắng", "target": "n"},
-        {"text": "ấm", "target": null}
+        {"text": "_ên", "target": "l"}
       ]
     },
     {
-      "id": "le_hoi",
-      "text": "lễ hội",
+      "id": "lop_nam",
+      "text": "lớp năm",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {"text": "_ễ", "target": "l"},
-        {"text": "hội", "target": null}
-      ]
-    },
-    {
-      "id": "not_nhac",
-      "text": "nốt nhạc",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ốt", "target": "n"},
-        {"text": "nhạc", "target": null}
-      ]
-    },
-    {
-      "id": "ne_nep",
-      "text": "nề nếp",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ề", "target": "n"},
-        {"text": "_ếp", "target": "n"}
-      ]
-    },
-    {
-      "id": "nang_luc",
-      "text": "năng lực",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ăng", "target": "n"},
-        {"text": "_ực", "target": "l"}
-      ]
-    },
-    {
-      "id": "lap_lo",
-      "text": "lấp ló",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ấp", "target": "l"},
-        {"text": "_ó", "target": "l"}
-      ]
-    },
-    {
-      "id": "nan_not",
-      "text": "nắn nót",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ắn", "target": "n"},
-        {"text": "_ót", "target": "n"}
-      ]
-    },
-    {
-      "id": "loc_xoay",
-      "text": "lốc xoáy",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ốc", "target": "l"},
-        {"text": "xoáy", "target": null}
-      ]
-    },
-    {
-      "id": "lung_linh",
-      "text": "lung linh",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_ung", "target": "l"},
-        {"text": "_inh", "target": "l"}
-      ]
-    },
-    {
-      "id": "luyen_noi",
-      "text": "luyện nói",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {"text": "_uyện", "target": "l"},
-        {"text": "_ói", "target": "n"}
+        {"text": "_ớp", "target": "l"},
+        {"text": "_ăm", "target": "n"}
       ]
     }
   ]
