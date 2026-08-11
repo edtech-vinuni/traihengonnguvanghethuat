@@ -53,7 +53,7 @@
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {"text": "_ịch", "target": "l},
+        {"text": "_ịch", "target": "l"},
         {"text": "sử", "target": null}
       ]
     },
