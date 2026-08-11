@@ -1,5 +1,5 @@
 {
-  "lesson_name": "Bài 3 - Practice 3",
+  "lesson_name": "Bài 4 - Practice 4",
   "praises": [
     "Tuyệt vời, con đọc rất tốt!",
     "Giỏi quá, con phát âm rõ rồi!",
@@ -8,161 +8,161 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "nong_dan",
-      "text": "nông dân",
+      "id": "niem_vui",
+      "text": "niềm vui",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ông",
+          "text": "_iềm",
           "target": "n"
         },
         {
-          "text": "dân",
+          "text": "vui",
           "target": null
         }
       ]
     },
     {
-      "id": "net_chu",
-      "text": "nét chữ",
+      "id": "nam_thang",
+      "text": "năm tháng",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ét",
+          "text": "_ăm",
           "target": "n"
         },
         {
-          "text": "chữ",
+          "text": "tháng",
           "target": null
         }
       ]
     },
     {
-      "id": "ne_nep",
-      "text": "nề nếp",
+      "id": "noi_nang",
+      "text": "nói năng",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ề",
+          "text": "_ói",
           "target": "n"
         },
         {
-          "text": "_ếp",
+          "text": "_ăng",
           "target": "n"
         }
       ]
     },
     {
-      "id": "nan_not",
-      "text": "nắn nót",
+      "id": "nuc_no",
+      "text": "nức nở",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ắn",
+          "text": "_ức",
           "target": "n"
         },
         {
-          "text": "_ót",
+          "text": "_ở",
           "target": "n"
         }
       ]
     },
     {
-      "id": "lang_que",
-      "text": "làng quê",
+      "id": "bao_la",
+      "text": "bao la",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_àng",
+          "text": "bao",
+          "target": null
+        },
+        {
+          "text": "_a",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "dong_lua",
+      "text": "đồng lúa",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "đồng",
+          "target": null
+        },
+        {
+          "text": "_úa",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "long_lanh",
+      "text": "long lanh",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ong",
           "target": "l"
         },
         {
-          "text": "quê",
-          "target": null
+          "text": "_anh",
+          "target": "l"
         }
       ]
     },
     {
-      "id": "loi_di",
-      "text": "lối đi",
+      "id": "lang_le",
+      "text": "lặng lẽ",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ặng",
+          "target": "l"
+        },
+        {
+          "text": "_ẽ",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "noi_lien",
+      "text": "nối liền",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
           "text": "_ối",
-          "target": "l"
-        },
-        {
-          "text": "đi",
-          "target": null
-        }
-      ]
-    },
-    {
-      "id": "liu_lo",
-      "text": "líu lo",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {
-          "text": "_íu",
-          "target": "l"
-        },
-        {
-          "text": "_o",
-          "target": "l"
-        }
-      ]
-    },
-    {
-      "id": "lanh_lan",
-      "text": "lành lặn",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {
-          "text": "_ành",
-          "target": "l"
-        },
-        {
-          "text": "_ặn",
-          "target": "l"
-        }
-      ]
-    },
-    {
-      "id": "nong_lanh",
-      "text": "nóng lạnh",
-      "time_limit_seconds": 40,
-      "listen_enable_attempt": 2,
-      "syllables": [
-        {
-          "text": "_óng",
           "target": "n"
         },
         {
-          "text": "_ạnh",
+          "text": "_ền",
           "target": "l"
         }
       ]
     },
     {
-      "id": "len_nui",
-      "text": "lên núi",
+      "id": "luyen_noi",
+      "text": "luyện nói",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ên",
+          "text": "_uyện",
           "target": "l"
         },
         {
-          "text": "_úi",
+          "text": "_ói",
           "target": "n"
         }
       ]
