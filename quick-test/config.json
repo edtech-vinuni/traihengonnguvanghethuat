@@ -40,17 +40,17 @@
       ]
     },
     {
-      "id": "nang_niu",
-      "text": "nâng niu",
+      "id": "ne_nep",
+      "text": "nề nếp",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_âng",
+          "text": "_ề",
           "target": "n"
         },
         {
-          "text": "_iu",
+          "text": "_ếp",
           "target": "n"
         }
       ]
@@ -136,33 +136,33 @@
       ]
     },
     {
-      "id": "nang_luc",
-      "text": "năng lực",
+      "id": "nong_lanh",
+      "text": "nóng lạnh",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ăng",
+          "text": "_óng",
           "target": "n"
         },
         {
-          "text": "_ực",
+          "text": "_ạnh",
           "target": "l"
         }
       ]
     },
     {
-      "id": "loi_noi",
-      "text": "lời nói",
+      "id": "len_nui",
+      "text": "lên núi",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ời",
+          "text": "_ên",
           "target": "l"
         },
         {
-          "text": "_ói",
+          "text": "_úi",
           "target": "n"
         }
       ]
