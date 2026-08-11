@@ -38,23 +38,23 @@
       ]
     },
     {
-      "id": "nang_ne",
-      "text": "nặng nề",
+      "id": "nau_nuong",
+      "text": "nấu nướng",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {"text": "_ặng", "target": "n"},
-        {"text": "_ề", "target": "n"}
+        {"text": "_ấu", "target": "n"},
+        {"text": "_ướng", "target": "n"}
       ]
     },
     {
-      "id": "con_luon",
-      "text": "con lươn",
+      "id": "lich_su",
+      "text": "lịch sử",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
-        {"text": "con", "target": null},
-        {"text": "_ươn", "target": "l"}
+        {"text": "_ịch", "target": "l},
+        {"text": "sử", "target": null}
       ]
     },
     {
