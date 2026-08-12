@@ -8,18 +8,18 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "mau_nau",
-      "text": "màu nâu",
+      "id": "lang_thang",
+      "text": "lang thang",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "màu",
-          "target": null
+          "text": "_ang",
+          "target": "l"
         },
         {
-          "text": "_âu",
-          "target": "n"
+          "text": "thang",
+          "target": null
         }
       ]
     },
