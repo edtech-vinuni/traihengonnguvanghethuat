@@ -8,17 +8,17 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "viet_nam",
-      "text": "việt nam",
+      "id": "cai_noi",
+      "text": "cái nồi",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "việt",
+          "text": "cái",
           "target": null
         },
         {
-          "text": "_am",
+          "text": "_ồi",
           "target": "n"
         }
       ]
@@ -56,18 +56,18 @@
       ]
     },
     {
-      "id": "lien_quan",
-      "text": "liên quân",
+      "id": "thai_lan",
+      "text": "thái lan",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_iên",
-          "target": "l"
+          "text": "thái",
+          "target": null
         },
         {
-          "text": "quân",
-          "target": null
+          "text": "_an",
+          "target": "l"
         }
       ]
     },
@@ -88,17 +88,17 @@
       ]
     },
     {
-      "id": "nuoc_hoa",
-      "text": "nước hoa",
+      "id": "nan_banh",
+      "text": "nặn bánh",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ước",
+          "text": "_ặn",
           "target": "n"
         },
         {
-          "text": "hoa",
+          "text": "bánh",
           "target": null
         }
       ]
@@ -136,17 +136,17 @@
       ]
     },
     {
-      "id": "khoi_luong",
-      "text": "khối lượng",
+      "id": "cai_luoi",
+      "text": "cái lưỡi",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "khối",
+          "text": "cái",
           "target": null
         },
         {
-          "text": "_ượng",
+          "text": "_ưỡi",
           "target": "l"
         }
       ]
