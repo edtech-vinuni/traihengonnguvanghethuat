@@ -1,0 +1,171 @@
+{
+  "lesson_name": "Bài 4 - Practice 4",
+  "praises": [
+    "Tuyệt vời, con đọc rất tốt!",
+    "Giỏi quá, con phát âm rõ rồi!",
+    "Tốt lắm, tiếp tục nhé!"
+  ],
+  "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
+  "items": [
+    {
+      "id": "lang_thang",
+      "text": "lang thang",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ang",
+          "target": "l"
+        },
+        {
+          "text": "thang",
+          "target": null
+        }
+      ]
+    },
+    {
+      "id": "nam_thang",
+      "text": "năm tháng",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ăm",
+          "target": "n"
+        },
+        {
+          "text": "tháng",
+          "target": null
+        }
+      ]
+    },
+    {
+      "id": "noi_nang",
+      "text": "nói năng",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ói",
+          "target": "n"
+        },
+        {
+          "text": "_ăng",
+          "target": "n"
+        }
+      ]
+    },
+    {
+      "id": "non_nao",
+      "text": "nôn nao",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ôn",
+          "target": "n"
+        },
+        {
+          "text": "_ao",
+          "target": "n"
+        }
+      ]
+    },
+    {
+      "id": "bao_la",
+      "text": "bao la",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "bao",
+          "target": null
+        },
+        {
+          "text": "_a",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "lao_dong",
+      "text": "lao động",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ao",
+          "target": "l"
+        },
+        {
+          "text": "động",
+          "target": null
+        }
+      ]
+    },
+    {
+      "id": "long_lanh",
+      "text": "long lanh",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ong",
+          "target": "l"
+        },
+        {
+          "text": "_anh",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "lam_lung",
+      "text": "làm lụng",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_àm",
+          "target": "l"
+        },
+        {
+          "text": "_ụng",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "noi_lien",
+      "text": "nối liền",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ối",
+          "target": "n"
+        },
+        {
+          "text": "_ền",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "luyen_noi",
+      "text": "luyện nói",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_uyện",
+          "target": "l"
+        },
+        {
+          "text": "_ói",
+          "target": "n"
+        }
+      ]
+    }
+  ]
+}

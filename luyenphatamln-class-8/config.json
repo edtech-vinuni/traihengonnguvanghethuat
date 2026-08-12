@@ -1,0 +1,171 @@
+{
+  "lesson_name": "Bài 5 - Practice 5",
+  "praises": [
+    "Tuyệt vời, con đọc rất tốt!",
+    "Giỏi quá, con phát âm rõ rồi!",
+    "Tốt lắm, tiếp tục nhé!"
+  ],
+  "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
+  "items": [
+    {
+      "id": "cai_noi",
+      "text": "cái nồi",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "cái",
+          "target": null
+        },
+        {
+          "text": "_ồi",
+          "target": "n"
+        }
+      ]
+    },
+    {
+      "id": "len_lop",
+      "text": "lên lớp",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ên",
+          "target": "l"
+        },
+        {
+          "text": "_ớp",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "noi_nang",
+      "text": "nói năng",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ói",
+          "target": "n"
+        },
+        {
+          "text": "_ăng",
+          "target": "n"
+        }
+      ]
+    },
+    {
+      "id": "thai_lan",
+      "text": "thái lan",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "thái",
+          "target": null
+        },
+        {
+          "text": "_an",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "nong_lanh",
+      "text": "nóng lạnh",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_óng",
+          "target": "n"
+        },
+        {
+          "text": "_ạnh",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "nan_banh",
+      "text": "nặn bánh",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ặn",
+          "target": "n"
+        },
+        {
+          "text": "bánh",
+          "target": null
+        }
+      ]
+    },
+    {
+      "id": "lanh_lan",
+      "text": "lành lặn",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ành",
+          "target": "l"
+        },
+        {
+          "text": "_ặn",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "ne_nep",
+      "text": "nề nếp",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_ề",
+          "target": "n"
+        },
+        {
+          "text": "_ếp",
+          "target": "n"
+        }
+      ]
+    },
+    {
+      "id": "cai_luoi",
+      "text": "cái lưỡi",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "cái",
+          "target": null
+        },
+        {
+          "text": "_ưỡi",
+          "target": "l"
+        }
+      ]
+    },
+    {
+      "id": "lam_nong",
+      "text": "làm nông",
+      "time_limit_seconds": 40,
+      "listen_enable_attempt": 2,
+      "syllables": [
+        {
+          "text": "_àm",
+          "target": "l"
+        },
+        {
+          "text": "_ông",
+          "target": "n"
+        }
+      ]
+    }
+  ]
+}
