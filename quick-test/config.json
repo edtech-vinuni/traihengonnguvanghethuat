@@ -8,17 +8,17 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "tiec_nuoi",
-      "text": "tiếc nuối",
+      "id": "mau_nau",
+      "text": "màu nâu",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "tiếc",
+          "text": "màu",
           "target": null
         },
         {
-          "text": "_uối",
+          "text": "_âu",
           "target": "n"
         }
       ]
