@@ -8,18 +8,18 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "niem_vui",
-      "text": "niềm vui",
+      "id": "tiec_nuoi",
+      "text": "tiếc nuối",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_iềm",
-          "target": "n"
+          "text": "tiếc",
+          "target": null
         },
         {
-          "text": "vui",
-          "target": null
+          "text": "_uối",
+          "target": "n"
         }
       ]
     },
