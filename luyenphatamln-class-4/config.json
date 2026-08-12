@@ -8,17 +8,17 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "niem_vui",
-      "text": "niềm vui",
+      "id": "lang_thang",
+      "text": "lang thang",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_iềm",
-          "target": "n"
+          "text": "_ang",
+          "target": "l"
         },
         {
-          "text": "vui",
+          "text": "thang",
           "target": null
         }
       ]
@@ -56,17 +56,17 @@
       ]
     },
     {
-      "id": "nuc_no",
-      "text": "nức nở",
+      "id": "non_nao",
+      "text": "nôn nao",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ức",
+          "text": "_ôn",
           "target": "n"
         },
         {
-          "text": "_ở",
+          "text": "_ao",
           "target": "n"
         }
       ]
@@ -88,18 +88,18 @@
       ]
     },
     {
-      "id": "dong_lua",
-      "text": "đồng lúa",
+      "id": "lao_dong",
+      "text": "lao động",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "đồng",
-          "target": null
+          "text": "_ao",
+          "target": "l"
         },
         {
-          "text": "_úa",
-          "target": "l"
+          "text": "động",
+          "target": null
         }
       ]
     },
@@ -120,17 +120,17 @@
       ]
     },
     {
-      "id": "lang_le",
-      "text": "lặng lẽ",
+      "id": "lam_lung",
+      "text": "làm lụng",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ặng",
+          "text": "_àm",
           "target": "l"
         },
         {
-          "text": "_ẽ",
+          "text": "_ụng",
           "target": "l"
         }
       ]
