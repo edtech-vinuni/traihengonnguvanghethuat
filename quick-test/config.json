@@ -1,5 +1,5 @@
 {
-  "lesson_name": "Bài 6 - Practice 6",
+  "lesson_name": "Bài 7 - Practice 7",
   "praises": [
     "Tuyệt vời, con đọc rất tốt!",
     "Giỏi quá, con phát âm rõ rồi!",
@@ -73,7 +73,7 @@
     },
     {
       "id": "loi_ich",
-      "text": "lợi ich",
+      "text": "lợi ích",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
