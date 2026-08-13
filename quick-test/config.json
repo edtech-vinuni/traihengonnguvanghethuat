@@ -72,18 +72,18 @@
       ]
     },
     {
-      "id": "nguoi_lon",
-      "text": "người lớn",
+      "id": "linh_tinh",
+      "text": "linh tinh",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "người",
-          "target": null
+          "text": "_inh",
+          "target": "n"
         },
         {
-          "text": "_ớn",
-          "target": "l"
+          "text": "tinh",
+          "target": null
         }
       ]
     },
@@ -104,17 +104,17 @@
       ]
     },
     {
-      "id": "lan_lon",
-      "text": "lẫn lộn",
+      "id": "lac_lu",
+      "text": "lắc lư",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ẫn",
+          "text": "_ắc",
           "target": "l"
         },
         {
-          "text": "_ộn",
+          "text": "_ư",
           "target": "l"
         }
       ]
@@ -152,17 +152,17 @@
       ]
     },
     {
-      "id": "lay_nuoc",
-      "text": "lấy nước",
+      "id": "len_nui",
+      "text": "lên núi",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ấy",
+          "text": "_ên",
           "target": "l"
         },
         {
-          "text": "_ước",
+          "text": "_úi",
           "target": "n"
         }
       ]
