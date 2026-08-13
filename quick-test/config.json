@@ -72,17 +72,17 @@
       ]
     },
     {
-      "id": "linh_hoạt",
-      "text": "linh hoạt",
+      "id": "loi_ich",
+      "text": "lợi ich",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_inh",
-          "target": "n"
+          "text": "_ợi",
+          "target": "l"
         },
         {
-          "text": "hoạt",
+          "text": "ích",
           "target": null
         }
       ]
