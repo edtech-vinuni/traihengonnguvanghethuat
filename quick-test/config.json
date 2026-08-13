@@ -8,18 +8,18 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "thanh_nien",
-      "text": "thanh niên",
+      "id": "nam_huong",
+      "text": "nấm hương",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "thanh",
-          "target": null
+          "text": "_ấm",
+          "target": "n"
         },
         {
-          "text": "_iên",
-          "target": "n"
+          "text": "hương",
+          "target": null
         }
       ]
     },
@@ -88,17 +88,17 @@
       ]
     },
     {
-      "id": "tuong_lai",
-      "text": "tương lai",
+      "id": "đen_long",
+      "text": "đèn lồng",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "tương",
+          "text": "đèn",
           "target": null
         },
         {
-          "text": "_ai",
+          "text": "_ồng",
           "target": "l"
         }
       ]
