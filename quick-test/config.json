@@ -136,17 +136,17 @@
       ]
     },
     {
-      "id": "noi_lien",
-      "text": "nối liền",
+      "id": "no_le",
+      "text": "nô lệ",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ối",
+          "text": "_ô",
           "target": "n"
         },
         {
-          "text": "_iền",
+          "text": "_ệ",
           "target": "l"
         }
       ]
