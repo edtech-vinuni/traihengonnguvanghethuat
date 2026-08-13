@@ -40,17 +40,17 @@
       ]
     },
     {
-      "id": "nong_nan",
-      "text": "nồng nàn",
+      "id": "nuoi_nang",
+      "text": "nuôi nấng",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ồng",
+          "text": "_uôi",
           "target": "n"
         },
         {
-          "text": "_àn",
+          "text": "_ấng",
           "target": "n"
         }
       ]
@@ -72,8 +72,8 @@
       ]
     },
     {
-      "id": "nguoi_la",
-      "text": "người lạ",
+      "id": "nguoi_lon",
+      "text": "người lớn",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
@@ -82,7 +82,7 @@
           "target": null
         },
         {
-          "text": "_ạ",
+          "text": "_ớn",
           "target": "l"
         }
       ]
@@ -152,17 +152,17 @@
       ]
     },
     {
-      "id": "luu_niem",
-      "text": "lưu niệm",
+      "id": "lay_nuoc",
+      "text": "lấy nước",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ưu",
+          "text": "_ấy",
           "target": "l"
         },
         {
-          "text": "_ệm",
+          "text": "_ước",
           "target": "n"
         }
       ]
