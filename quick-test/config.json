@@ -8,17 +8,17 @@
   "default_bad": "Chưa đúng rồi, con thử đọc lại nhé.",
   "items": [
     {
-      "id": "ky_niem",
-      "text": "kỷ niệm",
+      "id": "thanh_nien",
+      "text": "thanh niên",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "kỷ",
+          "text": "thanh",
           "target": null
         },
         {
-          "text": "_iệm",
+          "text": "_iên",
           "target": "n"
         }
       ]
@@ -120,17 +120,17 @@
       ]
     },
     {
-      "id": "luu_luyen",
-      "text": "lưu luyến",
+      "id": "lieu_linh",
+      "text": "liều lĩnh",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ưu",
+          "text": "_iều",
           "target": "l"
         },
         {
-          "text": "_uyến",
+          "text": "_ĩnh",
           "target": "l"
         }
       ]
