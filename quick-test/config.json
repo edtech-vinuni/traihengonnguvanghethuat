@@ -72,8 +72,8 @@
       ]
     },
     {
-      "id": "linh_tinh",
-      "text": "linh tinh",
+      "id": "linh_hoạt",
+      "text": "linh hoạt",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
@@ -82,7 +82,7 @@
           "target": "n"
         },
         {
-          "text": "tinh",
+          "text": "hoạt",
           "target": null
         }
       ]
