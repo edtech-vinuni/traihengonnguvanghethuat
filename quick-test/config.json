@@ -104,8 +104,8 @@
       ]
     },
     {
-      "id": "lot_luoi",
-      "text": "lọt lưới",
+      "id": "lot_long",
+      "text": "lọt lòng",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
@@ -114,23 +114,23 @@
           "target": "l"
         },
         {
-          "text": "_ưới",
+          "text": "_òng",
           "target": "l"
         }
       ]
     },
     {
-      "id": "liu_luoi",
-      "text": "líu lưỡi",
+      "id": "lam_lanh",
+      "text": "làm lành",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_íu",
+          "text": "_àm",
           "target": "l"
         },
         {
-          "text": "_ưỡi",
+          "text": "_ành",
           "target": "l"
         }
       ]
