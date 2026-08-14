@@ -104,17 +104,17 @@
       ]
     },
     {
-      "id": "lot_long",
-      "text": "lọt lòng",
+      "id": "la_lot",
+      "text": "lá lốt",
       "time_limit_seconds": 40,
       "listen_enable_attempt": 2,
       "syllables": [
         {
-          "text": "_ọt",
+          "text": "_á",
           "target": "l"
         },
         {
-          "text": "_òng",
+          "text": "_ốt",
           "target": "l"
         }
       ]
